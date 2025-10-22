@@ -1,4 +1,14 @@
-<h1>Configurație PC Gaming </h1>
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+	<meta name="description" content="PC Gaming Configurație - Componente și prețuri">
+	<title>PC Gaming Configurație</title>
+</head>
+<body>
+
+<h1>PC Gaming Configurație</h1>
 
 <div class="components-grid">
 	<div class="component-card">
@@ -148,6 +158,15 @@
 
 <style>
 	/* Force dark background on body and content */
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+		-webkit-text-size-adjust: 100%;
+	}
+
 	body,
 	#content {
 		background: #0a0a0a !important;
@@ -155,6 +174,10 @@
 		min-height: 100vh;
 		padding: 30px 20px;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		margin: 0;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+		overflow-x: hidden;
 	}
 
 	h1 {
@@ -269,6 +292,25 @@
 		color: #fff;
 	}
 
+	/* Touch-friendly improvements */
+	.buy-button:active {
+		transform: scale(0.95);
+	}
+
+	/* Prevent text selection on mobile */
+	@media (max-width: 768px) {
+		.component-card {
+			-webkit-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+
+		.component-name, .price {
+			user-select: text;
+		}
+	}
+
 	.component-card.featured .buy-button {
 		background: #ffffff;
 		color: #ff0080;
@@ -283,10 +325,12 @@
 		background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
 		border-radius: 15px;
 		padding: 30px;
+		width: 100%;
 		max-width: 500px;
 		margin: 0 auto;
 		border: 2px solid #00ffff;
 		box-shadow: 0 10px 30px rgba(0, 255, 255, 0.2);
+		box-sizing: border-box;
 	}
 
 	.total-summary h2 {
@@ -337,41 +381,155 @@
 		transform: scale(1.02);
 	}
 
-	/* Mobile optimizations */
+	/* Enhanced Mobile Optimizations */
 	@media (max-width: 768px) {
 
 		body,
 		#content {
-			padding: 20px 10px;
+			padding: 15px 8px;
+			margin: 0;
 		}
 
 		h1 {
-			font-size: 2rem;
+			font-size: 1.8rem;
+			margin-bottom: 25px;
+			padding: 0 10px;
+			line-height: 1.2;
 		}
 
 		.components-grid {
 			grid-template-columns: 1fr;
-			gap: 20px;
+			gap: 15px;
+			max-width: 100%;
+		}
+
+		.component-card {
+			border-radius: 12px;
+			margin: 0;
+		}
+
+		.component-header {
+			padding: 12px 15px;
+		}
+
+		.component-header h3 {
+			font-size: 1rem;
+		}
+
+		.component-body {
+			padding: 15px;
+		}
+
+		.component-name {
+			font-size: 0.95rem;
+			margin-bottom: 15px;
+			line-height: 1.3;
 		}
 
 		.component-footer {
 			flex-direction: column;
-			gap: 15px;
+			gap: 12px;
+			align-items: stretch;
 		}
 
 		.price {
-			font-size: 1.5rem;
+			font-size: 1.4rem;
 			text-align: center;
+			padding: 8px 0;
 		}
 
 		.buy-button {
 			width: 100%;
-			padding: 15px;
-			font-size: 1.1rem;
+			padding: 12px 15px;
+			font-size: 1rem;
+			border-radius: 20px;
+			text-align: center;
+			display: block;
 		}
 
 		.total-summary {
-			margin: 0 10px;
+			margin: 20px auto 0 auto;
+			padding: 20px 15px;
+			border-radius: 12px;
+			width: calc(100% - 16px);
+			max-width: none;
+		}
+
+		.total-summary h2 {
+			font-size: 1.5rem;
+			margin-bottom: 20px;
+		}
+
+		.total-line {
+			font-size: 1rem;
+			padding: 6px 0;
+		}
+
+		.total-final {
+			font-size: 1.2rem;
+			padding: 12px 0;
+		}
+	}
+
+	/* Extra small devices (phones in portrait) */
+	@media (max-width: 480px) {
+		
+		body,
+		#content {
+			padding: 10px 5px;
+		}
+
+		h1 {
+			font-size: 1.6rem;
+			margin-bottom: 20px;
+		}
+
+		.components-grid {
+			gap: 12px;
+		}
+
+		.component-card {
+			border-radius: 10px;
+		}
+
+		.component-header {
+			padding: 10px 12px;
+		}
+
+		.component-body {
+			padding: 12px;
+		}
+
+		.component-name {
+			font-size: 0.9rem;
+		}
+
+		.price {
+			font-size: 1.3rem;
+		}
+
+		.buy-button {
+			padding: 10px 12px;
+			font-size: 0.95rem;
+		}
+
+		.total-summary {
+			margin: 15px auto 0 auto;
+			padding: 15px 12px;
+			width: calc(100% - 10px);
+			max-width: none;
+		}
+
+		.total-summary h2 {
+			font-size: 1.3rem;
+		}
+
+		.total-line {
+			font-size: 0.95rem;
+		}
+
+		.total-final {
+			font-size: 1.1rem;
 		}
 	}
 </style>
@@ -391,11 +549,8 @@
 				}
 			});
 		});
-
-		// Order all button functionality
-		const orderAllBtn = document.querySelector('.order-all-btn');
-		orderAllBtn.addEventListener('click', function () {
-			alert('🎮 Configurația completă va fi adăugată în coș!\n\nTotal: 5.886,70 Lei');
-		});
 	});
 </script>
+
+</body>
+</html>
